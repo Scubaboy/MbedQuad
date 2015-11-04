@@ -305,7 +305,7 @@ int main()
     //Setup tasks
     
     //PWM Test Task
-    SchedulerTypes::SchedulerItem PWMOutputTestTask = {1000,
+    SchedulerTypes::SchedulerItem PWMOutputTestTask = {1001,
                                              0,
                                              SchedulerTypes::PWMTest, 
                                              new PWMTestTask(sysCtrlConfig.pwmTestCtrl,sysCtrlConfig.pwmTestBusCtrl)};
