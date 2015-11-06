@@ -3,6 +3,12 @@
 
 namespace CommTypes
 {
-    const int DataPacketSize = 200;  
+    const int DataPacketSize = 200;
+
+    enum Mode
+            {
+                Synching,
+                Synched
+            };
 };
 #endif

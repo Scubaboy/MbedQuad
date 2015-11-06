@@ -14,19 +14,19 @@ void CommsSynchTask::ExecuteTask(int interval)
 {
     if (this->sysComms != NULL && this->systemModeController != NULL)
     {
-        if (this->sysComms->isSynched() && this->waitingSynch)
+       if (!this->sysComms->isSynched())// && this->waitingSynch)
         {
-            this->systemModeController->SetMode(this->mode);
-            this->waitingSynch = false;
-        }
-        else if (this->waitingSynch == false && this->sysComms->isSynched())
-        {
-            this->mode = this->systemModeController->GetPreviousMode();
-            this->sysComms->ReSynch();
-            this->waitingSynch = true;
-        }
-        else
-        {
+    //        this->systemModeController->SetMode(this->mode);
+    //        this->waitingSynch = false;
+    //    }
+    //    else if (this->waitingSynch == false && this->sysComms->isSynched())
+    //    {
+    //        this->mode = this->systemModeController->GetPreviousMode();
+    //        this->sysComms->ReSynch();
+    //        this->waitingSynch = true;
+    //    }
+     //   else
+    //    {
             this->sysComms->SendSynch();   
         }
     }  

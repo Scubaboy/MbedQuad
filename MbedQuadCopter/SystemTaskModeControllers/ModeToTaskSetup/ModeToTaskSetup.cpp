@@ -5,7 +5,7 @@ void ModeToTaskSetup::SetupModeTaskMapping(SystemTaskModeControllerBase* modeCon
 {
     if (modeController != NULL)
     {
-        modeController->AssignTaskToMode(SchedulerTypes::CommsSynch,FlightMode::CommsSynch);
+      //  modeController->AssignTaskToMode(SchedulerTypes::CommsSynch,FlightMode::CommsSynch);
         modeController->AssignTaskToMode(SchedulerTypes::StartUp,FlightMode::StartUp);
         modeController->AssignTaskToMode(SchedulerTypes::PWMTest,FlightMode::PWMRangeTest);
         modeController->AssignTaskToMode(SchedulerTypes::ConfigCal,FlightMode::ConfigCal);

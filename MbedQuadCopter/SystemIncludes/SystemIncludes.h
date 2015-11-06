@@ -33,6 +33,8 @@
 #include "AltimeterTask.h"
 #include "SystemStatusLoggerTask.h"
 #include "FlightPackMonitorTask.h"
+#include "HeartBeatSendTask.h"
+#include "HeartBeatMonitorTask.h"
 #include "MLP115A2.h"
 #include "MagSensorBase.h"
 #include "CellSelectorPortConfig.h"

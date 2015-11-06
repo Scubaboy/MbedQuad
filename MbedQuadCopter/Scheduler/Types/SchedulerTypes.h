@@ -25,7 +25,9 @@ namespace SchedulerTypes
         CheckReceiveQueue = 14,
         CommsSynch = 15,
         ProcessReceivedMsg = 16,
-        GPSUpdate = 17
+        GPSUpdate = 17,
+		HeartBeatSend = 18,
+		HeartBeatMonitor = 19
     };
     
     typedef struct SchedulerItem

@@ -12,7 +12,7 @@ const int ActualDataSize = CommTypes::DataPacketSize - CRCTypeSize;
 const int DataSynchPckSize = 3;
 const char SynchPck[] = "##\0";
 DigitalOut heartBeat = DigitalOut(LED1); 
-Xbee::Xbee(PinName tx, PinName rx, PinName rst, DebugLoggerBase* debugLogger, HeartBeatMonitor* heartBeatMonitor) : uartPort(tx,rx), rst(rst), test(LED1)
+Xbee::Xbee(PinName tx, PinName rx, PinName rst, DebugLoggerBase* debugLogger, CommsStatus::CommsStatusStruct* commsStatus) : uartPort(tx,rx), rst(rst), test(LED1)
 {
     this->waitingSendConf = false;
     this->uartPort.format(8, Serial::None, 1);
@@ -28,15 +28,14 @@ Xbee::Xbee(PinName tx, PinName rx, PinName rst, DebugLoggerBase* debugLogger, He
     this->isReading = false;
     this->msgReady = false;
     this->isSynch = false;
-    this->mode = Synching;
+    this->commsStatus = commsStatus;
+
     this->firstPckRecv = false;
     
     if (debugLogger != NULL)
     {
         this->debugLogger = debugLogger;   
     }
-    
-    this->heartBeatMonitor = heartBeatMonitor;
 } 
 
 void Xbee::SendSynch()
@@ -58,18 +57,18 @@ void Xbee::SendSynch()
         
 bool Xbee::isSynched()
 {
-    return this->mode == Synched ? true : false;    
+    return this->commsStatus->mode == CommTypes::Synched ? true : false;
 }
 void Xbee::ReSynch()       
 {
-    this->mode = Synching;
+	this->commsStatus->mode = CommTypes::Synching;
 }
 
 bool Xbee::SendDataPacket(char* data, const int dataLength, bool requireConf)
 {
     bool result = false;
     
-    if (this->mode == Synched)
+    if (this->commsStatus->mode == CommTypes::Synched)
     {
         if (dataLength <= (CommTypes::DataPacketSize - CRCTypeSize))
         {
@@ -190,6 +189,9 @@ bool Xbee::CommsEstablished()
 
 void Xbee::EstablishComms()
 {
+	//Set Comms mode
+	this->commsStatus->mode = CommTypes::Synching;
+
     //Put Xbee into reset;
     this->rst = 0;
 
@@ -208,7 +210,7 @@ void Xbee::EstablishComms()
 
 void Xbee::ReSendLastMsg()
 {
-    if (this->mode == Synched)
+    if (this->commsStatus->mode == CommTypes::Synched)
     {
         if (this->waitingSendConf)
         {
@@ -242,9 +244,9 @@ bool Xbee::IsWaitingResp()
 
 void Xbee::DataReceived()
 {
-    switch (this->mode)
+    switch (this->commsStatus->mode)
     {
-        case Synching:
+        case CommTypes::Synching:
         {
             
             if (this->receivedDataLen == DataSynchPckSize)
@@ -252,10 +254,9 @@ void Xbee::DataReceived()
                 
                 if (strcmp(SynchPck,this->intermediateReceiveBuffer) == 0)
                 {
-                    this->mode = Synched;
+                    this->commsStatus->mode = CommTypes::Synched;
                     this->receivedDataLen = 0;
-                    this->heartBeatMonitor->StartMonitor();
-                    this->heartBeatMonitor->StartSend();
+
                     
                     if (this->debugLogger != NULL)
                     {  
@@ -268,7 +269,7 @@ void Xbee::DataReceived()
             
             break;   
         }   
-        case Synched:
+        case CommTypes::Synched:
         {
             if (this->receivedDataLen == CommTypes::DataPacketSize)
             {
@@ -393,9 +394,9 @@ void Xbee::ReadUartReceiveBuffer(MODSERIAL_IRQ_INFO* data)
 
         while (this->uartPort.readable())
         {
-            switch (this->mode)
+            switch (this->commsStatus->mode)
             {
-                case Synched:
+                case CommTypes::Synched:
                 {
                     if (!this->firstPckRecv)
                     {
@@ -413,7 +414,7 @@ void Xbee::ReadUartReceiveBuffer(MODSERIAL_IRQ_INFO* data)
                     }       
                     break;   
                 }
-                case Synching:
+                case CommTypes::Synching:
                 {
                     if (this->receivedDataLen > DataSynchPckSize)
                     {

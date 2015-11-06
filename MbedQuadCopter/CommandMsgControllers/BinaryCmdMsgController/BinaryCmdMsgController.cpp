@@ -21,6 +21,7 @@ BinaryCmdMsgController::BinaryCmdMsgController(SystemModeControllerBase* systemM
                                                FlightCtrlData::FlightCtrlDataStruct* flightCtrlData,
                                                SystemStatusAck::SystemStatusAckStruct* systemStatusAck,
                                                HeartBeatStatus::HeartBeatStatusStruct* heartBeatStatus,
+											   TimeSynchStatus::TimeSynchStatusStruct* timeSynchStatus,
                                                DebugLoggerBase* logger,
                                                SysCtrlConfigCtrl* selectedSysConf)
 {
@@ -34,6 +35,7 @@ BinaryCmdMsgController::BinaryCmdMsgController(SystemModeControllerBase* systemM
       this->highLevelController = highLevelController;
       this->flightCtrlData = flightCtrlData;
       this->heartBeatStatus = heartBeatStatus;
+      this->timeSynchStatus = timeSynchStatus;
 }
 
 void BinaryCmdMsgController::CheckForCmdMsg()
@@ -219,6 +221,11 @@ void BinaryCmdMsgController::ActionReceivedDataPck()
         {
             SyncTimeDataPck::SyncTimeData* synchTimeDataRcv = (SyncTimeDataPck::SyncTimeData*)this->newDataPck;
             
+            if (this->timeSynchStatus != NULL)
+            {
+            	this->timeSynchStatus->timeSynched = true;
+            }
+
             this->SendToLogger("Time synch\n\r\0");
             
             set_time(synchTimeDataRcv->SyncSeconds);

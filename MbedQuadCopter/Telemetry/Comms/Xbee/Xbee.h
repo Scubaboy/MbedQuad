@@ -6,13 +6,14 @@
 #include "MODSERIAL.h"
 #include "DebugLoggerBase.h"
 #include "HeartBeatMonitor.h"
+#include "CommsStatus.h"
 
 const int QueueSize = 5;
 
 class Xbee : public BaseComms
 {
     public:
-        Xbee(PinName tx, PinName rx, PinName rst,DebugLoggerBase* debugLogger, HeartBeatMonitor* heartBeatMonitor); 
+        Xbee(PinName tx, PinName rx, PinName rst,DebugLoggerBase* debugLogger, CommsStatus::CommsStatusStruct* commsStatus);
         virtual bool SendDataPacket(char* data, const int dataLength, bool requireConf = true);
         virtual bool TakeDataPacket(ReceiveDataPacket::ReceiveDataPacketStruct* dataPacket);
         virtual bool CommsEstablished();
@@ -32,12 +33,7 @@ class Xbee : public BaseComms
         void RecvTimerAction();
         virtual void SendReceiveResponce(bool dataPckValid);
     private:
-        enum Mode
-        {
-            Synching, 
-            Synched
-        };
-        
+        CommsStatus::CommsStatusStruct* commsStatus;
         MODSERIAL  uartPort;
         DigitalOut rst;   
         bool receiveBufferFull;
@@ -60,10 +56,9 @@ class Xbee : public BaseComms
         bool msgReady;
         DigitalOut test; 
         bool isSynch;
-        Mode mode; 
         bool firstPckRecv;
         Timeout recvTimer;
         DebugLoggerBase* debugLogger;
-        HeartBeatMonitor* heartBeatMonitor;
+
 };
 #endif

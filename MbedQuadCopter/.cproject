@@ -44,6 +44,11 @@
 								<option id="gnu.cpp.compiler.option.other.other.1100343989" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti" valueType="string"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1011871574" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/.}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/StatusStructs/SystemStatus/TimeSynchStatusStruct}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/StatusStructs/SystemStatus/TimeSynchStatusStruct}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Scheduler/Tasks/HeatBeatMonitorTask}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Scheduler/Tasks/HeartBeatSendTask}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/StatusStructs/SystemStatus/CommsStatusStruct}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/IMU}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/IMU/Sensors}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/IMU/Sensors/Gyros}&quot;"/>
@@ -321,14 +326,14 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR}&quot;"/>
 								</option>
-								<option id="com.crt.advproject.cpp.specs.1464473483" superClass="com.crt.advproject.cpp.specs" value="com.crt.advproject.cpp.specs.newlib" valueType="enumerated"/>
-								<option id="com.crt.advproject.cpp.hdrlib.232870361" superClass="com.crt.advproject.cpp.hdrlib" value="com.crt.advproject.cpp.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.cpp.specs.1464473483" name="Specs" superClass="com.crt.advproject.cpp.specs" value="com.crt.advproject.cpp.specs.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.cpp.hdrlib.232870361" name="Library headers" superClass="com.crt.advproject.cpp.hdrlib" value="com.crt.advproject.cpp.hdrlib.newlib" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.compiler.cpp.input.1370967818" superClass="com.crt.advproject.compiler.cpp.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gcc.exe.debug.529082641" name="MCU C Compiler" superClass="com.crt.advproject.gcc.exe.debug">
 								<option id="com.crt.advproject.gcc.arch.1733119111" name="Architecture" superClass="com.crt.advproject.gcc.arch" value="com.crt.advproject.gcc.target.cm3" valueType="enumerated"/>
 								<option id="com.crt.advproject.gcc.thumb.570577864" name="Thumb mode" superClass="com.crt.advproject.gcc.thumb" value="true" valueType="boolean"/>
-								<option id="com.crt.advproject.gcc.hdrlib.784082637" name="Use headers for C library" superClass="com.crt.advproject.gcc.hdrlib" value="com.crt.advproject.gcc.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gcc.hdrlib.784082637" name="Library headers" superClass="com.crt.advproject.gcc.hdrlib" value="com.crt.advproject.gcc.hdrlib.newlib" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1824535269" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__NEWLIB__"/>
 									<listOptionValue builtIn="false" value="__CODE_RED"/>
@@ -626,15 +631,15 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR}&quot;"/>
 								</option>
-								<option id="com.crt.advproject.gcc.specs.1651834952" superClass="com.crt.advproject.gcc.specs" value="com.crt.advproject.gcc.specs.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gcc.specs.1651834952" name="Specs" superClass="com.crt.advproject.gcc.specs" value="com.crt.advproject.gcc.specs.newlib" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.compiler.input.205113874" superClass="com.crt.advproject.compiler.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gas.exe.debug.1277199919" name="MCU Assembler" superClass="com.crt.advproject.gas.exe.debug">
 								<option id="com.crt.advproject.gas.arch.1079400011" name="Architecture" superClass="com.crt.advproject.gas.arch" value="com.crt.advproject.gas.target.cm3" valueType="enumerated"/>
 								<option id="com.crt.advproject.gas.thumb.1976113150" name="Thumb mode" superClass="com.crt.advproject.gas.thumb" value="true" valueType="boolean"/>
 								<option id="gnu.both.asm.option.flags.crt.1501250871" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt" value="-c -x assembler-with-cpp -D__NEWLIB__ -DDEBUG -D__CODE_RED" valueType="string"/>
-								<option id="com.crt.advproject.gas.hdrlib.473313643" name="Use headers for C library" superClass="com.crt.advproject.gas.hdrlib" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
-								<option id="com.crt.advproject.gas.specs.355955452" superClass="com.crt.advproject.gas.specs" value="com.crt.advproject.gas.specs.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gas.hdrlib.473313643" name="Library headers" superClass="com.crt.advproject.gas.hdrlib" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gas.specs.355955452" name="Specs" superClass="com.crt.advproject.gas.specs" value="com.crt.advproject.gas.specs.newlib" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.assembler.input.910682278" name="Additional Assembly Source Files" superClass="com.crt.advproject.assembler.input"/>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.930166431" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -648,7 +653,7 @@
 									<listOptionValue builtIn="false" value="-Map=&quot;${BuildArtifactFileBaseName}.map&quot;"/>
 									<listOptionValue builtIn="false" value="--gc-sections"/>
 								</option>
-								<option id="com.crt.advproject.link.cpp.hdrlib.286729066" name="Use C library" superClass="com.crt.advproject.link.cpp.hdrlib" value="com.crt.advproject.cpp.link.hdrlib.newlib.semihost" valueType="enumerated"/>
+								<option id="com.crt.advproject.link.cpp.hdrlib.286729066" name="Library" superClass="com.crt.advproject.link.cpp.hdrlib" value="com.crt.advproject.cpp.link.hdrlib.newlib.semihost" valueType="enumerated"/>
 								<option id="gnu.cpp.link.option.paths.504050220" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/.}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/IMU}&quot;"/>
@@ -938,8 +943,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/startup_LPC17xx.o}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/system_LPC17xx.o}&quot;"/>
 								</option>
-								<option id="com.crt.advproject.link.cpp.multicore.master.userobjs.2016833946" superClass="com.crt.advproject.link.cpp.multicore.master.userobjs" valueType="userObjs"/>
-								<option id="com.crt.advproject.link.cpp.multicore.slave.138585221" superClass="com.crt.advproject.link.cpp.multicore.slave"/>
+								<option id="com.crt.advproject.link.cpp.multicore.master.userobjs.2016833946" name="Slave Objects (not visible)" superClass="com.crt.advproject.link.cpp.multicore.master.userobjs" valueType="userObjs"/>
+								<option id="com.crt.advproject.link.cpp.multicore.slave.138585221" name="Multicore configuration" superClass="com.crt.advproject.link.cpp.multicore.slave"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1671719885" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -1282,14 +1287,14 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR}&quot;"/>
 								</option>
-								<option id="com.crt.advproject.cpp.specs.24325037" superClass="com.crt.advproject.cpp.specs" value="com.crt.advproject.cpp.specs.newlib" valueType="enumerated"/>
-								<option id="com.crt.advproject.cpp.hdrlib.1177955653" superClass="com.crt.advproject.cpp.hdrlib" value="com.crt.advproject.cpp.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.cpp.specs.24325037" name="Specs" superClass="com.crt.advproject.cpp.specs" value="com.crt.advproject.cpp.specs.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.cpp.hdrlib.1177955653" name="Library headers" superClass="com.crt.advproject.cpp.hdrlib" value="com.crt.advproject.cpp.hdrlib.newlib" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.compiler.cpp.input.1172589171" superClass="com.crt.advproject.compiler.cpp.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gcc.exe.release.563782464" name="MCU C Compiler" superClass="com.crt.advproject.gcc.exe.release">
 								<option id="com.crt.advproject.gcc.arch.538870649" name="Architecture" superClass="com.crt.advproject.gcc.arch" value="com.crt.advproject.gcc.target.cm3" valueType="enumerated"/>
 								<option id="com.crt.advproject.gcc.thumb.486202735" name="Thumb mode" superClass="com.crt.advproject.gcc.thumb" value="true" valueType="boolean"/>
-								<option id="com.crt.advproject.gcc.hdrlib.966879133" name="Use headers for C library" superClass="com.crt.advproject.gcc.hdrlib" value="com.crt.advproject.gcc.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gcc.hdrlib.966879133" name="Library headers" superClass="com.crt.advproject.gcc.hdrlib" value="com.crt.advproject.gcc.hdrlib.newlib" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.740543529" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__NEWLIB__"/>
 									<listOptionValue builtIn="false" value="__CODE_RED"/>
@@ -1309,15 +1314,15 @@
 								</option>
 								<option id="gnu.c.compiler.option.misc.other.2015545820" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti" valueType="string"/>
 								<option id="gnu.c.compiler.option.optimization.flags.675461365" name="Other optimization flags" superClass="gnu.c.compiler.option.optimization.flags" value="-Os" valueType="string"/>
-								<option id="com.crt.advproject.gcc.specs.1003129602" superClass="com.crt.advproject.gcc.specs" value="com.crt.advproject.gcc.specs.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gcc.specs.1003129602" name="Specs" superClass="com.crt.advproject.gcc.specs" value="com.crt.advproject.gcc.specs.newlib" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.compiler.input.1938378962" superClass="com.crt.advproject.compiler.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gas.exe.release.579950187" name="MCU Assembler" superClass="com.crt.advproject.gas.exe.release">
 								<option id="com.crt.advproject.gas.arch.1401271875" name="Architecture" superClass="com.crt.advproject.gas.arch" value="com.crt.advproject.gas.target.cm3" valueType="enumerated"/>
 								<option id="com.crt.advproject.gas.thumb.1024544278" name="Thumb mode" superClass="com.crt.advproject.gas.thumb" value="true" valueType="boolean"/>
 								<option id="gnu.both.asm.option.flags.crt.637466836" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt" value="-c -x assembler-with-cpp -D__NEWLIB__ -DNDEBUG -D__CODE_RED" valueType="string"/>
-								<option id="com.crt.advproject.gas.hdrlib.492600365" name="Use headers for C library" superClass="com.crt.advproject.gas.hdrlib" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
-								<option id="com.crt.advproject.gas.specs.642109160" superClass="com.crt.advproject.gas.specs" value="com.crt.advproject.gas.specs.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gas.hdrlib.492600365" name="Library headers" superClass="com.crt.advproject.gas.hdrlib" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.gas.specs.642109160" name="Specs" superClass="com.crt.advproject.gas.specs" value="com.crt.advproject.gas.specs.newlib" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.assembler.input.812068162" name="Additional Assembly Source Files" superClass="com.crt.advproject.assembler.input"/>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.545388840" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -1331,7 +1336,7 @@
 									<listOptionValue builtIn="false" value="-Map=&quot;${BuildArtifactFileBaseName}.map&quot;"/>
 									<listOptionValue builtIn="false" value="--gc-sections"/>
 								</option>
-								<option id="com.crt.advproject.link.cpp.hdrlib.259007915" name="Use C library" superClass="com.crt.advproject.link.cpp.hdrlib" value="com.crt.advproject.cpp.link.hdrlib.newlib.semihost" valueType="enumerated"/>
+								<option id="com.crt.advproject.link.cpp.hdrlib.259007915" name="Library" superClass="com.crt.advproject.link.cpp.hdrlib" value="com.crt.advproject.cpp.link.hdrlib.newlib.semihost" valueType="enumerated"/>
 								<option id="gnu.cpp.link.option.libs.6254811" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="mbed"/>
 								</option>
@@ -1621,7 +1626,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/startup_LPC17xx.o}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_CR/system_LPC17xx.o}&quot;"/>
 								</option>
-								<option id="com.crt.advproject.link.cpp.multicore.master.userobjs.133445100" superClass="com.crt.advproject.link.cpp.multicore.master.userobjs" valueType="userObjs"/>
+								<option id="com.crt.advproject.link.cpp.multicore.master.userobjs.133445100" name="Slave Objects (not visible)" superClass="com.crt.advproject.link.cpp.multicore.master.userobjs" valueType="userObjs"/>
+								<option id="com.crt.advproject.link.cpp.multicore.slave.590574027" name="Multicore configuration" superClass="com.crt.advproject.link.cpp.multicore.slave"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.486207182" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -1941,10 +1947,7 @@
 		<projectStorage>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#13;
 &lt;TargetConfig&gt;&#13;
 &lt;Properties property_0="" property_2="LPC175x_6x_512.cfx" property_3="NXP" property_4="LPC1768" property_count="5" version="70200"/&gt;&#13;
-&lt;infoList vendor="NXP"&gt;&#13;
-&lt;info chip="LPC1768" flash_driver="LPC175x_6x_512.cfx" match_id="0x00013f37,0x26013F37,0x26113F37" name="LPC1768" package="lpc17_lqfp100.xml" stub="crt_emu_cm3_nxp"&gt;&#13;
-&lt;chip&gt;&#13;
-&lt;name&gt;LPC1768&lt;/name&gt;&#13;
+&lt;infoList vendor="NXP"&gt;&lt;info chip="LPC1768" flash_driver="LPC175x_6x_512.cfx" match_id="0x00013f37,0x26013F37,0x26113F37" name="LPC1768" package="lpc17_lqfp100.xml" stub="crt_emu_cm3_nxp"&gt;&lt;chip&gt;&lt;name&gt;LPC1768&lt;/name&gt;&#13;
 &lt;family&gt;LPC17xx&lt;/family&gt;&#13;
 &lt;vendor&gt;NXP (formerly Philips)&lt;/vendor&gt;&#13;
 &lt;reset board="None" core="Real" sys="Real"/&gt;&#13;
@@ -2006,8 +2009,7 @@
 &lt;peripheralInstance derived_from="LPC17_MCPWM" determined="infoFile" enable="SYSCTL.PCONP.PCMCPWM&amp;amp;0x1" id="MCPWM" location="0x400B8000"/&gt;&#13;
 &lt;peripheralInstance derived_from="LPC17_FMC" determined="infoFile" id="FMC" location="0x40084000"/&gt;&#13;
 &lt;/chip&gt;&#13;
-&lt;processor&gt;&#13;
-&lt;name gcc_name="cortex-m3"&gt;Cortex-M3&lt;/name&gt;&#13;
+&lt;processor&gt;&lt;name gcc_name="cortex-m3"&gt;Cortex-M3&lt;/name&gt;&#13;
 &lt;family&gt;Cortex-M&lt;/family&gt;&#13;
 &lt;/processor&gt;&#13;
 &lt;link href="nxp_lpcxxxx_peripheral.xme" show="embed" type="simple"/&gt;&#13;

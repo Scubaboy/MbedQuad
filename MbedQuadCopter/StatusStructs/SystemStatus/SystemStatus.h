@@ -7,6 +7,8 @@
 #include "IMUStatus.h"
 #include "FlightPackCheckStatus.h"
 #include "HeartBeatStatusStruct.h"
+#include "CommsStatus.h"
+#include "TimeSynchStatus.h"
 
 namespace SystemStatus
 {
@@ -21,6 +23,8 @@ namespace SystemStatus
         IMUStatus::IMUStatusStruct imuStatus;
         FlightPackCheckStatus::FlightPackCheckStruct flightPackCheckStatus;
         HeartBeatStatus::HeartBeatStatusStruct heartBeatStatus;
+        CommsStatus::CommsStatusStruct commsStatus;
+        TimeSynchStatus::TimeSynchStatusStruct timeSynchStatus;
     } SystemStatusStruct;
 }
 #endif

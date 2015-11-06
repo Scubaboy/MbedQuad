@@ -184,7 +184,7 @@ int main()
     SPIBusCtrl* spiBusCtrl = new SPIBusCtrl(5, &spiBus, &isSPIBusUser);
     
     quadSystemStatus.heartBeatStatus.HeartBeatReceived = false;
-    HeartBeatMonitor* heartBeatMonitor = new HeartBeatMonitor(&quadSystemStatus.heartBeatStatus, modeController, seriallogger);
+    HeartBeatMonitor* heartBeatMonitor = new HeartBeatMonitor(&quadSystemStatus.heartBeatStatus, &quadSystemStatus.commsStatus, seriallogger);
     
     seriallogger->EnableDisableLogger(true);
     
@@ -199,7 +199,9 @@ int main()
     
     //Set system comms
     //systemComms = new Xbee(p13, p14, p30);
-    sysCtrlConfig.systemComms = new Xbee(p13, p14, p30, seriallogger, heartBeatMonitor);
+    quadSystemStatus.timeSynchStatus.timeSynched = false;
+    quadSystemStatus.commsStatus.mode = CommTypes::Synching;
+    sysCtrlConfig.systemComms = new Xbee(p13, p14, p30, seriallogger, &quadSystemStatus.commsStatus);
     sysCtrlConfig.systemComms->EstablishComms();
     heartBeatMonitor->SendRequest(sysCtrlConfig.systemComms, &BaseComms::SendDataPacket);
     
@@ -286,7 +288,7 @@ int main()
                          
                                                            
     //Setup command message controller
-    modeController->SetMode(FlightMode::CommsSynch);//CommsSynch); //was setup
+    modeController->SetMode(FlightMode::StartUp);//CommsSynch); //was setup
     BinaryCmdMsgController binaryMsgCmdController(modeController, 
                                                   highLevelRateController,
                                                   &userResponce,
@@ -294,6 +296,7 @@ int main()
                                                   &flightCtrlData,
                                                   &systemStatusAck,
                                                   &quadSystemStatus.heartBeatStatus, 
+												  &quadSystemStatus.timeSynchStatus,
                                                   seriallogger,
                                                   systemConfig);
                                                   
@@ -304,6 +307,18 @@ int main()
     
     //Setup tasks
     
+    //Heartbeatsend task
+  //  SchedulerTypes::SchedulerItem HrtBeatSendTask  = {10000,
+   // 		0,
+	//		SchedulerTypes::HeartBeatSend,
+	//		new HeartBeatSendTask(heartBeatMonitor)};
+
+    //Heartbeatmonitor task
+        SchedulerTypes::SchedulerItem HrtBeatMonitorTask  = {10000,
+        		0,
+    			SchedulerTypes::HeartBeatMonitor,
+    			new HeartBeatMonitorTask(heartBeatMonitor,&quadSystemStatus.timeSynchStatus)};
+
     //PWM Test Task
     SchedulerTypes::SchedulerItem PWMOutputTestTask = {1000,
                                              0,
@@ -428,6 +443,8 @@ int main()
     taskScheduler->AddTask(&ComsSynchTask);
     taskScheduler->AddTask(&CheckReceiveQueueTask);
     taskScheduler->AddTask(&cmdReaderTask);
+    //taskScheduler->AddTask(&HrtBeatSendTask);
+    taskScheduler->AddTask(&HrtBeatMonitorTask);
    // taskScheduler->AddTask(&flightPackMonitorTask);
    // taskScheduler->AddTask(&flightDataTask);
   //  taskScheduler->AddTask(&StatusDataTask);

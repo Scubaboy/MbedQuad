@@ -15,6 +15,7 @@
 #include "BaseHighLevelRateController.h"
 #include "FlightCtrlData.h"
 #include "HeartBeatStatusStruct.h"
+#include "TimeSynchStatus.h"
 
 class BinaryCmdMsgController : public CmdMsgControllerBase
 {
@@ -26,6 +27,7 @@ class BinaryCmdMsgController : public CmdMsgControllerBase
                                FlightCtrlData::FlightCtrlDataStruct* flightCtrlData,
                                SystemStatusAck::SystemStatusAckStruct* systemStatusAck,
                                HeartBeatStatus::HeartBeatStatusStruct* heartBeatStatus,
+							   TimeSynchStatus::TimeSynchStatusStruct* timeSynchStatus,
                                DebugLoggerBase* logger,
                                SysCtrlConfigCtrl* selectedSysConf);
         virtual void CheckForCmdMsg();
@@ -66,5 +68,6 @@ class BinaryCmdMsgController : public CmdMsgControllerBase
         BaseHighLevelRateController* highLevelController;
         FlightCtrlData::FlightCtrlDataStruct* flightCtrlData;
         HeartBeatStatus::HeartBeatStatusStruct* heartBeatStatus;
+        TimeSynchStatus::TimeSynchStatusStruct* timeSynchStatus;
 };
 #endif

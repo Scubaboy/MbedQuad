@@ -30,7 +30,9 @@ bool BasicTaskModeController::CanTaskExecute (SchedulerTypes::Tasks task)
             task == SchedulerTypes::SendSystemStatus ||
             task == SchedulerTypes::ReSendLastDataPck ||
             task == SchedulerTypes::CheckReceiveQueue ||
-            task == SchedulerTypes::ProcessReceivedMsg)
+            task == SchedulerTypes::ProcessReceivedMsg ||
+			task == SchedulerTypes::CommsSynch ||
+			task == SchedulerTypes::HeartBeatMonitor)
         {
             canExecute = true; 
         }
